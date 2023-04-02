@@ -1,0 +1,61 @@
+.contenedor{
+    color: green;
+    background-color: aqua;
+}
+
+@font-face{
+    font-family: miFuente;
+    src: url('fronts/lion_king.ttf');
+}
+
+h1{
+    font-family: miFuente;
+
+}
+
+h2{
+    font-family: miFuente;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: green; 
+}
+
+h3{
+    font-family: miFuente;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: green; 
+}
+
+h4{
+    font-family: miFuente;
+    padding-left: 80px;
+    padding-right: 80px;
+    color: green; 
+}
+
+.carousel-inner img{
+    height: 400px;
+
+}
+
+.boxProductos img{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(213, 255, 254);
+}
+
+
+.container{
+    background-color: aquamarine;
+}
+
+p{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container img{
+    background-color: thistle;
+}
+
