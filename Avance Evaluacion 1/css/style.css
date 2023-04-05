@@ -1,6 +1,9 @@
 .contenedor{
-    color: green;
-    background-color: aqua;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    
 }
 
 @font-face{
@@ -10,13 +13,12 @@
 
 h1{
     font-family: miFuente;
+    color: rgb(41, 132, 243);
 
 }
 
 h2{
     font-family: miFuente;
-    padding-left: 20px;
-    padding-right: 20px;
     color: green; 
 }
 
@@ -34,6 +36,10 @@ h4{
     color: green; 
 }
 
+h6{
+    font-family: miFuente;
+}
+
 .carousel-inner img{
     height: 400px;
 
@@ -47,7 +53,7 @@ h4{
 
 
 .container{
-    background-color: aquamarine;
+    
 }
 
 p{
@@ -57,5 +63,14 @@ p{
 
 .container img{
     background-color: thistle;
+    height: 275px;
 }
 
+body{
+    background-color:rgb(242, 215, 242);
+
+}
+
+.card{
+    margin-top: 20px;
+}
