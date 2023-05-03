@@ -110,3 +110,14 @@ body{
     color: #ea2828; 
 }
 
+#reloj {
+    margin-top: 14px;
+    font-size: 1rem;
+    font-weight: 900;
+    color: black;
+    text-align: center;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: #fff;
+  }
