@@ -1,7 +1,26 @@
+const ocultar = document.getElementById("ocultar");
+ocultar.style.display = "none";
+
+let modoOscuro = false;
+
 function cambiarModo() { 
-    var cuerpoweb = document.body; 
-    cuerpoweb.classList.toggle("oscuro"); 
+  var cuerpoweb = document.body; 
+  cuerpoweb.classList.toggle("oscuro");
+  
+  modoOscuro = !modoOscuro; 
+  
+  const mostrar = document.getElementById("mostrar");
+  const ocultar = document.getElementById("ocultar");
+  
+  if (modoOscuro) {
+    mostrar.style.display = "none";
+    ocultar.style.display = "inline";
+  } else {
+    mostrar.style.display = "inline";
+    ocultar.style.display = "none";
+  }
 }
+
 
 
 function mostrarHora() {
