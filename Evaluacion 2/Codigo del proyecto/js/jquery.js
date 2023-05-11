@@ -1,0 +1,30 @@
+$(function(){
+    $("#miFormulario").validate({
+        rules:{
+            txtNombre:{
+                required:true,
+                minlength:3
+            },
+            txtApellido:{
+                required:true,
+                minlength:3
+            },
+            txtRut:{
+                required:true,
+                minlength:8
+            },
+            txtCelular:{
+                required:true,
+                minlength:9
+            },
+            txtCorreo:{
+                required:true,
+                email:true
+            },
+            txtContraseña:{
+                required:true,
+                password:true
+            }
+        }
+    })
+})

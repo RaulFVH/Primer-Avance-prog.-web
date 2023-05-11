@@ -121,3 +121,12 @@ body{
     border-radius: 1rem;
     background-color: #fff;
   }
+
+  small{
+    color: red;
+}
+
+
+.error{
+    color: red;
+}
