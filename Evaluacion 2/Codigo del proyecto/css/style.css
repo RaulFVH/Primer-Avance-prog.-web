@@ -130,3 +130,10 @@ body{
 .error{
     color: red;
 }
+
+.mini-box p {
+    margin-bottom: 1px; 
+    font-weight: 500;
+    color: black;
+}
+

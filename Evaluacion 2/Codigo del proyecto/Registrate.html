@@ -10,7 +10,8 @@
     <title>Registrate</title>
     <link rel="shortcut icon" href="img/My project-1.png" type="image/x-icon">
 </head>
-<body>
+
+<body onload="ubi()">
   <nav class="navbar navbar-expand-lg" style="background-color:rgb(255, 240, 223);">
         <div class="container-fluid">
           <a class="navbar-brand" href="Index.html"><img src="img/My project-1.png" alt=""></a>          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,10 @@
             <div>
               <p id="reloj"></p>
             </div>
-            <p></p>
+            <div class="mini-box">
+              <p id="ubicacion"></p>
+              <p id="temperatura"></p>
+            </div>
             <div>
                 <button onclick="cambiarModo()" type="button" class="btn btn" id="button-addon">
                   <svg id="mostrar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
@@ -166,6 +170,7 @@
         integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
       <script src="js/Code.js"></script>
       <script src="js/formulario.js" ></script>
+      <script src="js/Api.js"></script>
 
       </body>
 </html>

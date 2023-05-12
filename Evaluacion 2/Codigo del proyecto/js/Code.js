@@ -37,3 +37,5 @@ function mostrarHora() {
 
   setInterval(mostrarHora, 1000);
 
+  const miElemento = document.getElementById('mi-elemento');
+

@@ -1,29 +1,30 @@
+$.validator.addMethod("password", function(value) {
+    
+  });
+
 $(function(){
     $("#miFormulario").validate({
         rules:{
-            txtNombre:{
-                required:true,
-                minlength:3
-            },
-            txtApellido:{
-                required:true,
-                minlength:3
-            },
-            txtRut:{
-                required:true,
-                minlength:8
-            },
-            txtCelular:{
-                required:true,
-                minlength:9
-            },
             txtCorreo:{
                 required:true,
                 email:true
             },
             txtContraseña:{
                 required:true,
-                password:true
+                minlength:6,
+                password:false
+            }
+        },
+        messages:{
+            txtCorreo:{
+                required: "El correo es un campo obligatorio.",
+                minlength: "El formato del correo no es valido.",
+                email: "Ingresa una dirección de correo electrónico válida."
+            },
+            txtContraseña:{
+                required: "La contraseña es un campo obligatorio.",
+                minlength: "La contraseña debe tener minimo 6 caracteres.",
+                password: "La contraseña es invalida."
             }
         }
     })
