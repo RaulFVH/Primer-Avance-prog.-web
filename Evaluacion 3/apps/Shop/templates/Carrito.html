@@ -8,8 +8,13 @@
 
 {% block body %}
 
+
 <div class="container"> 
     <a href="{% url 'Ayuda' %}" class="btn-flotante">¿Necesitas ayuda?</a> 
   </div>
 
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/carro.js' %}></script>
 {% endblock %}

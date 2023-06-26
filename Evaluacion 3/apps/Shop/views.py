@@ -92,9 +92,15 @@ def eliminarProducto(request,sku):
 def carrito(request):
     productos = json.loads(request.body)
     for p in productos:
-        print("SKU",p['sku'])
-        print("CANTIDAD",p['cantidad'])
+        sku = p.get('sku')
+        cantidad = p.get('cantidad')
+        if sku is not None and cantidad is not None:
+            print("SKU:", sku)
+            print("CANTIDAD:", cantidad)
+        else:
+            print("No se encontró SKU o CANTIDAD en el elemento del producto")
     return HttpResponse("OK!")
+
 
 def Registrate(request):
     return render(request, 'registrate.html')
