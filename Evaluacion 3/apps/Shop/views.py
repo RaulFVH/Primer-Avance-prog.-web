@@ -12,17 +12,17 @@ from django.shortcuts import render
 def Index(request):
     return render(request, 'index.html')
 
-def Productos(request):
+def cargarInicio(request):
     productos = Producto.objects.all()
     producto_plantas = Producto.objects.filter(categoria_id=1)
     producto_semillas = Producto.objects.filter(categoria_id=2)
     producto_tierra = Producto.objects.filter(categoria_id=3)
     producto_fertilizantes = Producto.objects.filter(categoria_id=4)
-    producto_herramientas= Producto.objects.filter(categoria_id=5)
+    producto_herramientas = Producto.objects.filter(categoria_id=5)
     producto_macetas = Producto.objects.filter(categoria_id=6)
     producto_riego = Producto.objects.filter(categoria_id=7)
     producto_decoraciones = Producto.objects.filter(categoria_id=8)
-    return render(request,"Productos.html",{"prod" : productos, "prod_plants":producto_plantas, "prod_seeds":producto_semillas, "prod_land":producto_tierra, "prod_fertilizer":producto_fertilizantes, "prod_tools":producto_herramientas, "prod_pots":producto_macetas, "prod_irrigation":producto_riego, "prod_decorations":producto_decoraciones})
+    return render(request, "Productos.html", {"prod": productos, "prod_plants": producto_plantas, "prod_seeds": producto_semillas, "prod_land": producto_tierra, "prod_fertilizer": producto_fertilizantes, "prod_tools": producto_herramientas, "prod_pots": producto_macetas, "prod_irrigation": producto_riego, "prod_decorations": producto_decoraciones})
 
 def cargarAgregarProducto(request):
     categorias = Categoria.objects.all()
@@ -39,11 +39,13 @@ def agregarProducto(request):
     v_descripcion = request.POST['txtDescripcion']
     v_stock = request.POST['txtStock']
 
-    v_categoria = Categoria.objects.get(id_categoria = request.POST['cmbCategoria'])
+    v_categoria = Categoria.objects.get(id_categoria=request.POST['cmbCategoria'])
 
     Producto.objects.create(sku = v_sku, precio = v_precio, nombre = v_nombre,imagen = v_imagen,descripcion = v_descripcion,stock = v_stock, categoria_id = v_categoria)
 
-    return redirect('/Admin')
+
+    return redirect('/agregarProducto')
+
 
 def cargarEditarProducto(request,sku):
     producto = Producto.objects.get(sku = sku)
@@ -76,8 +78,7 @@ def editarProducto(request):
 
     productoBD.save()
 
-    return redirect('/Admin')
-
+    return redirect('/agregarProducto')
 
 
 def eliminarProducto(request,sku):
@@ -86,10 +87,9 @@ def eliminarProducto(request,sku):
     os.remove(ruta_img)
     producto.delete()
 
-    return redirect('/Admin')
+    return redirect('/agregarProducto')
 
 def carrito(request):
-    #print("CARRITO",request.body)
     productos = json.loads(request.body)
     for p in productos:
         print("SKU",p['sku'])

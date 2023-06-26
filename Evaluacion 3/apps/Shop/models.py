@@ -8,7 +8,7 @@ class Categoria(models.Model):
 
     def __str__(self):
         txt = "Codigo: {0} - {1}"
-        return txt.format(self.id_categoria,self.nombre)    
+        return txt.format(self.id_categoria,self.nombre)
 
 class Producto(models.Model):
     sku = models.IntegerField(primary_key=True)

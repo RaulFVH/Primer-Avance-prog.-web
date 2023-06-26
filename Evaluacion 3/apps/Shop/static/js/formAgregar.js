@@ -17,6 +17,12 @@ formulario.addEventListener('submit', function(evento) {
     } else if (document.getElementById("txtStock").value.length == 0) {
         alert("Debe ingresar el stock del producto.");
     } else {
-        this.submit();
+        // Validación adicional del campo cmbCategoria
+        if (document.getElementById("cmbCategoria").value === "Seleccione") {
+            alert("Debe seleccionar una categoría.");
+        } else {
+            this.submit();
+        }
     }
 });
+    

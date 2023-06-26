@@ -2,8 +2,15 @@
 
 {% load static %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
 {% block body %}
+
+<div class="container mt-3">
     <h1>Editar productos</h1>
+</div>
 
     <div class="container mb-5 mt-5">
         <form id="formEditarProducto" action="/editarProductoForm" method="POST" enctype="multipart/form-data"> {% csrf_token %}
@@ -22,7 +29,6 @@
                 </div>
                 <div class="col-md-6">
                     <label for="txtImagen">Imagen:</label>
-                    <img src="{{prod.imagen.url}}" height="100" alt="">
                     <input name="txtImagen" id="txtImagen" class="form-control" type="file">
                 </div>
                 <div class="col-md-6">
@@ -42,8 +48,10 @@
                         {% endfor %}
                       </select>
                 </div>
+                <div class="col-md-6 align-self-end">
+                    <button class="btn btn-success">Editar producto</button>
+                </div>
             </div>
-            <button class="btn btn-success mt-5 w-100">Editar producto</button>
         </form>
     </div>
 
