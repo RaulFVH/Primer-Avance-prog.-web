@@ -1,0 +1,118 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div style="background-color: #f5a15de9;" class="container mt-3 d-flex flex-column align-items-center">
+    <h1>Administrador</h1>
+  </div>
+
+  <div style="background-color: #f5a15d5f;" class="container mt-3 d-flex flex-column align-items-center">
+    <h3>Agregar Productos</h3>
+  </div>
+
+  <div style="background-color: #f5a15d5f;" class="container mb-5 mt-5">
+    <form id="formAgregarproducto" action="/agregarProductoForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-1">
+                <label for="txtSku">SKU:</label>
+                <input name="txtSku" id="txtSku" class="form-control" type="text">
+            </div>
+            <div class="col-md-3">
+                <label for="txtNombre">Nombre:</label>
+                <input name="txtNombre" id="txtNombre" class="form-control" type="text">
+            </div>
+            <div class="col-md-1">
+                <label for="txtPrecio">Precio:</label>
+                <input name="txtPrecio" id="txtPrecio" class="form-control" type="text">
+            </div>
+            <div class="col-md-6">
+                <label for="txtImagen">Imagen:</label>
+                <input name="txtImagen" id="txtImagen" class="form-control" type="file">
+            </div>
+            <div class="col-md-6">
+                <label for="txtDescripcion">Descripción:</label>
+                <input name="txtDescripcion" id="txtDescripcion" class="form-control" type="text">
+            </div>
+            <div class="col-md-1">
+                <label for="txtStock">Stock:</label>
+                <input name="txtStock" id="txtStock" class="form-control" type="text">
+            </div>
+            <div class="col-md-2">
+                <label for="txtSku">Categoría:</label>
+                <select name="cmbCategoria" id="cmbCategoria" class="form-select" aria-label="Default select example">
+                    <option disabled selected>Seleccione</option>
+                    {% for i in cate %}
+                    <option value="{{i.id_categoria}}">{{i.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <button class="btn btn-primary">Agregar producto</button>
+            </div>
+        </div>
+    </form>
+    <div class="col mt-3">
+        <div class="d-flex justify-content-start">
+            <form class="d-flex" role="search">
+                {% csrf_token %}
+                <button id="btnCarrito" class="btn btn-warning" type="submit">Obtener</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+    <div style="background-color: #f5a15d5f;" class="container mt-5 mb-5">
+    <table class="table table-bordered table-hover">
+        <thead style="background-color: #f5a25d; color: white;">
+            <tr>
+                <th scope="col">SKU</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in prod %}
+            <tr>
+                <td>{{c.sku}}</td>
+                <td><img src="{{c.imagen.url}}" alt="50"></td>
+                <td>${{c.precio}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.descripcion}}</td>
+                <td>{{c.stock}}</td>
+                <td>{{c.categoria_id}}</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="/editarProducto/{{c.sku}}" class="btn btn-outline-primary">Editar</a>
+                        <a href="/eliminarProducto/{{c.sku}}" class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/Storage.js' %}"></script>
+<script src="{% static 'js/formAgregar.js' %}"></script>
+<script src="{% static 'js/carrito.js' %}"></script>
+{% endblock %}
